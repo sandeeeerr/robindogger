@@ -53,7 +53,7 @@ class AddSeoDefaults
 
             Meta::make()
                 ->name('theme-color')
-                ->content('#3b82f6'),
+                ->content('#ffffff'),
 
             Meta::make()
                 ->name('msapplication-TileColor')
