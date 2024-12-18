@@ -11,13 +11,13 @@
 
   <body class="font-sans text-base leading-normal tracking-normal text-gray-800">
     <div class="flex flex-col min-h-screen">
-      <x-sections.header />
+      {{-- <x-sections.header /> --}}
 
-      <div class="flex-1">
+      {{-- <div class="flex-1"> --}}
         {{ $slot }}
-      </div>
+      {{-- </div> --}}
 
-      <x-sections.footer />
+      {{-- <x-sections.footer /> --}}
     </div>
 
     @livewireScriptConfig
