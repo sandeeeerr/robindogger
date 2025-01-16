@@ -112,6 +112,25 @@ class PostResource extends Resource
 
                                             ]),
                                     ]),
+                                Forms\Components\Repeater::make('rows')
+                                    ->label('Media Rows')
+                                    ->columnSpanFull()
+                                    ->schema([
+                                        Forms\Components\Repeater::make('media')
+                                            ->label(fn (Get $get) => 
+                                                'Row (' . count($get('media') ?? []) . ' items)'
+                                            )
+                                            ->schema([
+                                                CuratorPicker::make('media_file')
+                                                    ->label('Column')
+                                                    ->required(),
+                                            ])
+                                            ->defaultItems(1) // Zorgt ervoor dat er standaard 1 item aanwezig is
+                                            ->maxItems(3) // Maximaal 3 items per row
+                                            ->columns(1), // Zet de media onder elkaar in de backend
+                                    ])
+                                    ->default([]),
+                                
                             ]),
 
                         Forms\Components\Section::make()

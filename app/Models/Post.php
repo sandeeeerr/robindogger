@@ -22,6 +22,7 @@ class Post extends Model
         'title',
         'slug',
         'content',
+        'rows',
         'image_id',
         'user_id',
         'is_published',
@@ -35,9 +36,11 @@ class Post extends Model
      */
     protected $casts = [
         'content' => 'array',
+        'rows' => 'array',
         'is_published' => 'boolean',
         'published_at' => 'datetime',
     ];
+    
 
     /**
      * Get the user that owns the post.
