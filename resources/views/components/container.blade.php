@@ -1,12 +1,3 @@
-@props(['size' => 'md'])
-
-@php($size = match ($size) {
-  'sm' => 'max-w-4xl',
-  'md' => 'max-w-5xl',
-  'lg' => 'max-w-6xl',
-  default => 'max-w-4xl',
-})
-
-<div {{ $attributes->merge(['class' => "{$size} px-6 mx-auto"]) }}>
+<div {{ $attributes->merge(['class' => "w-full max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8"]) }}>
   {{ $slot }}
 </div>

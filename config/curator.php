@@ -34,11 +34,6 @@ return [
     ],
     'directory' => 'media',
     'disk' => env('FILAMENT_FILESYSTEM_DISK', 'public'),
-    'glide' => [
-        'server' => null, // Verwijder de server configuratie
-        'fallbacks' => [],
-        'route_path' => null, // Zet de route_path op null
-    ],
     'image_crop_aspect_ratio' => null,
     'image_resize_mode' => null,
     'image_resize_target_height' => null,

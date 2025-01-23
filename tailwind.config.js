@@ -3,6 +3,7 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
+  darkMode: 'class',
   content: [
     './app/**/*.php',
     './config/**/*.php',
@@ -13,6 +14,9 @@ module.exports = {
     extend: {
       colors: {
         primary: colors.blue,
+      },
+      fontFamily: {
+        sans: ['"Helvetica Neue"', 'Arial', 'sans-serif'], // Standaard font
       },
     },
   },
