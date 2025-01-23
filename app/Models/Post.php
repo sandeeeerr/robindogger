@@ -40,7 +40,6 @@ class Post extends Model
         'is_published' => 'boolean',
         'published_at' => 'datetime',
     ];
-    
 
     /**
      * Get the user that owns the post.

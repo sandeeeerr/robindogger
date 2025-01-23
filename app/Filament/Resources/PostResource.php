@@ -117,8 +117,7 @@ class PostResource extends Resource
                                     ->columnSpanFull()
                                     ->schema([
                                         Forms\Components\Repeater::make('media')
-                                            ->label(fn (Get $get) => 
-                                                'Row (' . count($get('media') ?? []) . ' items)'
+                                            ->label(fn (Get $get) => 'Row ('.count($get('media') ?? []).' items)'
                                             )
                                             ->schema([
                                                 CuratorPicker::make('media_file')
@@ -130,7 +129,7 @@ class PostResource extends Resource
                                             ->columns(1), // Zet de media onder elkaar in de backend
                                     ])
                                     ->default([]),
-                                
+
                             ]),
 
                         Forms\Components\Section::make()
