@@ -1,5 +1,15 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data="{ darkMode: localStorage.getItem('color-theme') === 'dark' || (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches) }" x-init="$watch('darkMode', value => localStorage.setItem('color-theme', value ? 'dark' : 'light')); darkMode ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark')">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" 
+  x-data="{
+    darkMode: localStorage.getItem('color-theme') === 'dark',
+    toggleDarkMode() {
+      this.darkMode = !this.darkMode;
+      localStorage.setItem('color-theme', this.darkMode ? 'dark' : 'light');
+      this.darkMode ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark');
+    }
+  }" 
+  x-init="darkMode ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark')"
+>
   <head>
     {{ seo()->render() }}
 
