@@ -20,18 +20,10 @@ class PostFactory extends Factory
             $this->faker->paragraphs(2, true),
             "## {$this->faker->sentence()}",
             $this->faker->paragraphs(3, true),
-            "## {$this->faker->sentence()}",
-            $this->faker->paragraphs(2, true),
-            "### {$this->faker->sentence()}",
-            $this->faker->paragraphs(3, true),
-            "### {$this->faker->sentence()}",
-            $this->faker->paragraphs(2, true),
-            "## {$this->faker->sentence()}",
-            $this->faker->paragraphs(3, true),
         ];
 
         return [
-            'title' => $this->faker->sentence(),
+            'title' => $this->faker->sentence(3), // Titel met 2-3 woorden
             'slug' => $this->faker->slug(),
             'content' => [[
                 'type' => 'markdown',

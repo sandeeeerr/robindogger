@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Post::factory()
-            ->count(25)
+            ->count(3)
             ->create();
 
         Notification::make()
