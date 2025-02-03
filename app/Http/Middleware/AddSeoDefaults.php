@@ -28,28 +28,28 @@ class AddSeoDefaults
             LinkMeta::make()
                 ->rel('apple-touch-icon')
                 ->attr('sizes', '180x180')
-                ->href('/apple-touch-icon.png'),
+                ->href('/assets/apple-touch-icon.png'),
 
             LinkMeta::make()
                 ->rel('icon')
                 ->attr('sizes', '32x32')
                 ->attr('type', 'image/png')
-                ->href('/favicon-32x32.png'),
+                ->href('/assets/favicon-32x32.png'),
 
             LinkMeta::make()
                 ->rel('icon')
                 ->attr('sizes', '16x16')
                 ->attr('type', 'image/png')
-                ->href('/favicon-16x16.png'),
+                ->href('/assets/favicon-16x16.png'),
 
             LinkMeta::make()
                 ->rel('manifest')
-                ->href('/site.webmanifest'),
+                ->href('/assets/site.webmanifest'),
 
             LinkMeta::make()
                 ->rel('mask-icon')
                 ->attr('color', '#3b82f6')
-                ->href('/safari-pinned-tab.svg'),
+                ->href('/assets/safari-pinned-tab.svg'),
 
             Meta::make()
                 ->name('theme-color')
