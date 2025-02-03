@@ -19,7 +19,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
 
-  <body class="font-sans text-base leading-normal tracking-normal text-gray-800 dark:text-gray-200 dark:bg-black">
+  <body class="font-sans text-base tracking-normal leading-normal text-gray-800 dark:text-gray-200 dark:bg-black">
     <div class="flex flex-col min-h-screen">
       <x-sections.header />
 

@@ -1,11 +1,11 @@
-<header x-data="{ open: false, darkMode: localStorage.getItem('theme') === 'dark' }" class="bg-white text-black dark:bg-black dark:text-white">
+<header x-data="{ open: false, darkMode: localStorage.getItem('theme') === 'dark' }" class="text-black bg-white dark:bg-black dark:text-white">
   <x-container>
-    <nav class="flex items-center justify-between pb-4 pt-5">
+    <nav class="flex justify-between items-center pt-5 pb-4">
       {{-- Links uitgelijnd: Site naam --}}
       <div class="flex items-center">
         <a
           href="/"
-          class="text-lg md:text-xl font-bold uppercase hover:text-gray-500 dark:hover:text-gray-300 transition"
+          class="text-lg font-bold uppercase transition md:text-xl hover:text-gray-500 dark:hover:text-gray-300"
           aria-label="Robin Dogger"
         >
           Robin Dogger
@@ -13,37 +13,41 @@
       </div>
 
       {{-- Midden: Statische tekst (alleen desktop) --}}
-      <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 text-sm md:text-lg text-zinc-500 dark:text-zinc-400">
+      <div class="hidden absolute left-1/2 text-sm transform -translate-x-1/2 md:block md:text-lg text-zinc-500 dark:text-zinc-400">
         ( Graphic & Motion Design )
       </div>
 
       {{-- Rechts uitgelijnd: Desktop Menu & Dark Mode Toggle --}}
-      <div class="hidden md:flex items-center space-x-6 lg:space-x-8">
-        <a href="#" class="text-sm md:text-lg font-light hover:text-gray-500 dark:hover:text-gray-300 transition">Work</a>
-        <a href="#" class="text-sm md:text-lg font-light hover:text-gray-500 dark:hover:text-gray-300 transition">Contact</a>
-        <a href="#" class="text-sm md:text-lg font-light hover:text-gray-500 dark:hover:text-gray-300 transition">About</a>
+      <div class="hidden items-center space-x-6 md:flex lg:space-x-8">
+        <a href="#" class="text-sm font-light transition md:text-lg hover:text-gray-500 dark:hover:text-gray-300">Work</a>
+        <a href="#" class="text-sm font-light transition md:text-lg hover:text-gray-500 dark:hover:text-gray-300">Contact</a>
+        <a href="#" class="text-sm font-light transition md:text-lg hover:text-gray-500 dark:hover:text-gray-300">About</a>
         {{-- Dark Mode Toggle (Desktop) --}}
         <a
           href="#"
-          class="block text-lg hover:text-gray-500 dark:hover:text-gray-300 transition -mt-0.5"
+          class="block -mt-0.5 text-lg transition hover:text-gray-500 dark:hover:text-gray-300"
           aria-label="Toggle dark mode"
-          @click.prevent="darkMode = !darkMode; localStorage.setItem('theme', darkMode ? 'dark' : 'light'); document.documentElement.classList.toggle('dark', darkMode);"
+          @click.prevent="
+            darkMode = !darkMode;
+            localStorage.setItem('color-theme', darkMode ? 'dark' : 'light');
+            document.documentElement.classList.toggle('dark', darkMode);
+          "
         >
           <template x-if="!darkMode">
-            <x-heroicon-s-moon class="w-5 h-5 text-gray-700 dark:text-gray-300 transition" />
+            <x-heroicon-s-moon class="w-5 h-5 text-gray-700 transition dark:text-gray-300" />
           </template>
           <template x-if="darkMode">
-            <x-heroicon-s-sun class="w-5 h-5 text-gray-700 dark:text-gray-300 transition" />
+            <x-heroicon-s-sun class="w-5 h-5 text-gray-700 transition dark:text-gray-300" />
           </template>
         </a>
       </div>
 
       {{-- Mobiele navigatie: Menu & Dark Mode Toggle --}}
-      <div class="md:hidden flex items-center space-x-4">
+      <div class="flex items-center space-x-4 md:hidden">
           {{-- Menu Toggle (Mobiel) --}}
           <button
           @click="open = !open"
-          class="text-lg font-light hover:text-gray-500 dark:hover:text-gray-300 transition"
+          class="text-lg font-light transition hover:text-gray-500 dark:hover:text-gray-300"
           aria-label="Toggle menu"
         >
           menu
@@ -51,15 +55,15 @@
         {{-- Dark Mode Toggle (Mobiel) --}}
         <a
           href="#"
-          class="block text-lg hover:text-gray-500 dark:hover:text-gray-300 transition -mt-0.5"
+          class="block -mt-0.5 text-lg transition hover:text-gray-500 dark:hover:text-gray-300"
           aria-label="Toggle dark mode"
           @click.prevent="darkMode = !darkMode; localStorage.setItem('theme', darkMode ? 'dark' : 'light'); document.documentElement.classList.toggle('dark', darkMode);"
         >
           <template x-if="!darkMode">
-            <x-heroicon-s-moon class="w-5 h-5 text-gray-700 dark:text-gray-300 transition" />
+            <x-heroicon-s-moon class="w-5 h-5 text-gray-700 transition dark:text-gray-300" />
           </template>
           <template x-if="darkMode">
-            <x-heroicon-s-sun class="w-5 h-5 text-gray-700 dark:text-gray-300 transition" />
+            <x-heroicon-s-sun class="w-5 h-5 text-gray-700 transition dark:text-gray-300" />
           </template>
         </a>
 
@@ -76,11 +80,11 @@
       x-transition:leave="transition ease-in duration-150"
       x-transition:leave-start="opacity-100 scale-100"
       x-transition:leave-end="opacity-0 scale-95"
-      class="md:hidden bg-white dark:bg-black mr-4 pace-y-4"
+      class="mr-4 bg-white md:hidden dark:bg-black pace-y-4"
     >
-      <a href="#" class="block text-lg font-light hover:text-gray-500 dark:hover:text-gray-300 transition">Work</a>
-      <a href="#" class="block text-lg font-light hover:text-gray-500 dark:hover:text-gray-300 transition">Contact</a>
-      <a href="#" class="block text-lg font-light hover:text-gray-500 dark:hover:text-gray-300 transition">About</a>
+      <a href="#" class="block text-lg font-light transition hover:text-gray-500 dark:hover:text-gray-300">Work</a>
+      <a href="#" class="block text-lg font-light transition hover:text-gray-500 dark:hover:text-gray-300">Contact</a>
+      <a href="#" class="block text-lg font-light transition hover:text-gray-500 dark:hover:text-gray-300">About</a>
     </div>
   </x-container>
 </header>

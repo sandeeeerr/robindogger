@@ -78,40 +78,12 @@ class PostResource extends Resource
                                     ->maxLength(255)
                                     ->autofocus(),
 
-                                Forms\Components\Builder::make('content')
-                                    ->required()
-                                    ->columnSpanFull()
-                                    ->default([
-                                        ['type' => 'markdown'],
-                                    ])
-                                    ->blocks([
-                                        Builder\Block::make('markdown')
-                                            ->schema([
-                                                Forms\Components\MarkdownEditor::make('content')
-                                                    ->required(),
-                                            ]),
+                                Forms\Components\Textarea::make('description')
+                                    ->label('Description')
+                                    ->placeholder('Enter a description')
+                                    ->nullable()
+                                    ->columnSpanFull(),
 
-                                        Builder\Block::make('figure')
-                                            ->schema([
-                                                CuratorPicker::make('image')
-                                                    ->required(),
-
-                                                Forms\Components\Fieldset::make()
-                                                    ->label('Details')
-                                                    ->schema([
-                                                        Forms\Components\TextInput::make('alt')
-                                                            ->label('Alt Text')
-                                                            ->placeholder('Enter alt text')
-                                                            ->required()
-                                                            ->maxLength(255),
-
-                                                        Forms\Components\TextInput::make('caption')
-                                                            ->placeholder('Enter a caption')
-                                                            ->maxLength(255),
-                                                    ]),
-
-                                            ]),
-                                    ]),
                                 Forms\Components\Repeater::make('rows')
                                     ->label('Media Rows')
                                     ->columnSpanFull()
@@ -149,9 +121,27 @@ class PostResource extends Resource
                                     ->searchable()
                                     ->required(),
 
-                                CuratorPicker::make('image_id')
-                                    ->label('Featured Image'),
+                                Forms\Components\TextInput::make('services')
+                                    ->label('Services')
+                                    ->placeholder('Enter the services')
+                                    ->nullable()
+                                    ->maxLength(255)
+                                    ->columnSpanFull(),
+                                
+                                Forms\Components\TextInput::make('year')
+                                    ->label('Year')
+                                    ->placeholder('Enter the year')
+                                    ->nullable()
+                                    ->numeric()
+                                    ->maxLength(4),
 
+                                CuratorPicker::make('image_id')
+                                    ->label('Featured Media')
+                                    ->maxSize(51200)
+                                    ->acceptedFileTypes(['image/*', 'video/mp4', 'video/avi', 'video/mkv'])
+                                    ->helperText('Upload an image or a video.')
+                                    ->required(),
+                                
                                 Forms\Components\DatePicker::make('published_at')
                                     ->label('Publish Date')
                                     ->default(now())
