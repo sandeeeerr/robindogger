@@ -19,9 +19,9 @@
 
       {{-- Rechts uitgelijnd: Desktop Menu & Dark Mode Toggle --}}
       <div class="hidden items-center space-x-6 md:flex lg:space-x-8">
-        <a href="#" class="text-sm font-light transition md:text-lg hover:text-gray-500 dark:hover:text-gray-300">Work</a>
+        <a href="/" class="text-sm font-light transition md:text-lg hover:text-gray-500 dark:hover:text-gray-300">Work</a>
         <a href="#" class="text-sm font-light transition md:text-lg hover:text-gray-500 dark:hover:text-gray-300">Contact</a>
-        <a href="#" class="text-sm font-light transition md:text-lg hover:text-gray-500 dark:hover:text-gray-300">About</a>
+        <a wire:navigate href="/about" class="text-sm font-light transition md:text-lg hover:text-gray-500 dark:hover:text-gray-300">About</a>
         {{-- Dark Mode Toggle (Desktop) --}}
         <a
           href="#"

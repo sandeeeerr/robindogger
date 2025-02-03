@@ -81,9 +81,16 @@
       </div>
     </div>
 
-    <!-- Copyright sectie -->
-    <div class="text-xs text-gray-800/50 dark:text-gray-400/50">
-      &copy; {{ date('Y') }} {{ config('app.name') }}
+    <!-- Bottom footer section -->
+    <div class="grid col-span-4 pt-8 mt-8 md:grid-cols-2">
+      <div class="text-xl font-light text-zinc-500" >
+        All visuals, animations, and text on this site are original works by Robin Dogger. Copying, reproducing, or sharing without prior permission is strictly prohibited.
+        <br><br>
+        © 2024 Robin Dogger. All rights reserved.
+      </div>
+      <div class="mt-4 text-xl font-light md:mt-0 text-zinc-500">
+        Website development: <a href="https://sanderr.site" class="hover:underline">Sanderr</a>
+      </div>
     </div>
   </x-container>
 </footer>

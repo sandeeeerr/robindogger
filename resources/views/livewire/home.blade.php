@@ -2,7 +2,7 @@
   <x-hero title="A Graphic & Motion <br /> Designer based in Leeuwarden." />
 
   <x-container>
-    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
       @foreach ($posts as $post)
       {{-- @dd($post ) --}}
         <div>
