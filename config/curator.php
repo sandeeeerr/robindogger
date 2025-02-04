@@ -7,6 +7,9 @@ return [
         'image/webp',
         'image/svg+xml',
         'application/pdf',
+        'video/mp4',
+        'video/mov',
+        'video/quicktime',
     ],
     'cloud_disks' => [
         's3',
@@ -22,6 +25,9 @@ return [
         'webp',
         'png',
         'avif',
+        'mp4',
+        'mov',
+        'quicktime',
     ],
     'curation_presets' => [
         \Awcodes\Curator\Curations\ThumbnailPreset::class,
