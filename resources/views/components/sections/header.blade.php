@@ -1,6 +1,6 @@
 <header x-data="{ open: false, darkMode: localStorage.getItem('theme') === 'dark' }" class="fixed top-0 right-0 left-0 z-50 text-black bg-white dark:bg-black dark:text-white">
   <x-container>
-    <nav class="flex justify-between items-center pt-5 pb-4 mix-blend-difference">
+    <nav class="flex justify-between items-center pt-5 pb-4">
       {{-- Links uitgelijnd: Site naam --}}
       <div class="flex items-center">
         <a
