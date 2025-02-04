@@ -63,7 +63,7 @@
             <div class="grid gap-4 mb-8 grid-cols-1 md:grid-cols-{{ $cols }}">
               @foreach ($row['media'] as $media)
                 @php
-                  $mediaFile = \Awcodes\Curator\Models\Media::find($media['media_file']);
+                  $mediaFile = \Awcodes\Curator\Models\Media::where('id', $media['media_file'])->first();
                 @endphp
                 @if ($mediaFile)
                   <div class="relative 
