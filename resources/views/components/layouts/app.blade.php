@@ -23,7 +23,7 @@
     <div class="flex flex-col min-h-screen">
       <x-sections.header />
 
-      <div class="flex-1">
+      <div class="flex-1 py-12">
         {{ $slot }}
       </div>
 

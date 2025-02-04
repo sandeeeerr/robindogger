@@ -19,7 +19,7 @@
     <div class="font-sans antialiased text-gray-900">
         @include('layouts.navigation')
 
-        <main class="py-12">
+        <main class="pt-28 pb-12">
             @yield('content')
         </main>
     </div>
