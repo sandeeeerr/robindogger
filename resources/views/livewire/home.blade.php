@@ -39,7 +39,7 @@
               @endif
             </div>
 
-            <h3 class="my-4 text-lg font-light text-center text-gray-700 dark:text-gray-300 group-hover:text-primary-500 dark:group-hover:text-primary-400">
+            <h3 class="my-4 text-xl font-light text-center text-gray-700 dark:text-gray-300 group-hover:text-primary-500 dark:group-hover:text-primary-400">
               {{ $post->title }}
             </h3>
           </a>

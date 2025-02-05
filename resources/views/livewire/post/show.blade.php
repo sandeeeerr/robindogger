@@ -8,7 +8,7 @@
         <!-- Bovenste blok: Description, Services en Year -->
         <div class="grid grid-cols-1 mb-4 md-gap-0 md:grid-cols-4 md:gap-8 md:mb-8">
           <div class="md:col-span-2">
-            <h2 class="mt-0 mb-2 text-xl font-light md:mb-4 text-zinc-500 dark:text-zinc-400">
+            <h2 class="mt-0 mb-2 text-xl font-light md:mb-2 text-zinc-500 dark:text-zinc-400">
               Description
             </h2>
             @if ($post->description)
@@ -23,7 +23,7 @@
           </div>
 
           <div class="md:col-span-1">
-            <h2 class="mt-0 mb-2 text-xl font-light md:mb-4 text-zinc-500 dark:text-zinc-400">
+            <h2 class="mt-0 mb-2 text-xl font-light md:mb-2 text-zinc-500 dark:text-zinc-400">
               Services
             </h2>
             @if ($post->services)
@@ -38,7 +38,7 @@
           </div>
 
           <div class="md:col-span-1">
-            <h2 class="mt-0 mb-2 text-xl font-light md:mb-4 text-zinc-500 dark:text-zinc-400">
+            <h2 class="mt-0 mb-2 text-xl font-light md:mb-2 text-zinc-500 dark:text-zinc-400">
               Year
             </h2>
             @if ($post->year)
