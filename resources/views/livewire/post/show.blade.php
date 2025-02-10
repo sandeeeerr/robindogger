@@ -60,7 +60,7 @@
               $cols = count($row['media']);
             @endphp
             <!-- Op mobiel altijd 1 kolom, op grotere schermen evenveel als er media-elementen zijn -->
-            <div class="grid gap-4 mb-8 grid-cols-1 md:grid-cols-{{ $cols }}">
+            <div class="grid gap-4 mb-4 grid-cols-1 md:grid-cols-{{ $cols }}">
               @foreach ($row['media'] as $media)
                 @php
                   $mediaFile = \Awcodes\Curator\Models\Media::where('id', $media['media_file'])->first();
@@ -80,7 +80,7 @@
                       <img
                         src="{{ Storage::url($mediaFile->path) }}"
                         alt="{{ $mediaFile->alt ?? 'Media' }}"
-                        class="object-cover mt-0 w-full h-full"
+                        class="object-cover mt-0 mb-0 w-full h-full"
                       />
                     @elseif (Str::endsWith($mediaFile->path, ['.mp4', '.avi', '.mpeg']))
                       <!-- Render video -->
