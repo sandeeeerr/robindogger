@@ -10,6 +10,21 @@ use romanzipp\Seo\Structs\Meta\OpenGraph;
 
 class About extends Component
 {
+
+    public $count = 1;
+
+    public function increment()
+    {
+        $this->count++;
+    }
+
+    public function decrement()
+    {
+        if ($this->count > 0) {
+            $this->count--;
+        }
+    }
+    
     use WithPagination;
 
     /**
