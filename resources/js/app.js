@@ -59,3 +59,4 @@ initializeVideos();
 document.addEventListener("livewire:navigated", () => {
 initializeVideos();
 });
+

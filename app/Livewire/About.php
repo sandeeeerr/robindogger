@@ -10,19 +10,20 @@ use romanzipp\Seo\Structs\Meta\OpenGraph;
 
 class About extends Component
 {
-
     public $count = 1;
+    public $rotations = [];
+    public $isRotating = false;
+
+    public function mount()
+    {
+        $this->rotations[] = 0;
+    }
 
     public function increment()
     {
+        $this->isRotating = true;
+        $this->rotations[] = (count($this->rotations) * 90) % 360;
         $this->count++;
-    }
-
-    public function decrement()
-    {
-        if ($this->count > 0) {
-            $this->count--;
-        }
     }
     
     use WithPagination;

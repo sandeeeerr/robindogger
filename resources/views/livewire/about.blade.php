@@ -8,13 +8,19 @@
             </div>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            @for ($i = 0; $i < $count; $i++)
+            @foreach ($rotations as $index => $rotation)
                 <img
                     src="{{ asset('assets/ik.JPG') }}"
                     class="w-full aspect-square object-cover cursor-pointer"
                     wire:click="increment"
+                    style="transform: rotate({{ $rotation }}deg) scale(1);
+                           transition: transform 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+                           transform-origin: center center;
+                           will-change: transform;"
+                    onmouseover="this.style.transform = 'rotate({{ $rotation }}deg) scale(1.02)'"
+                    onmouseout="this.style.transform = 'rotate({{ $rotation }}deg) scale(1)'"
                 />
-            @endfor
+            @endforeach
         </div>
     </x-container>
 </div>
