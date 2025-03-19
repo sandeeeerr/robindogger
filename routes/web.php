@@ -12,3 +12,6 @@ Route::get('/curator/test', function () {
     return 'Curator route works!';
 });
 Route::get('/about', About::class)->name('about');
+Route::get('/phpinfo', function () {
+    phpinfo();
+});
