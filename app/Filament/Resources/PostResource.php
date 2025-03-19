@@ -94,7 +94,8 @@ class PostResource extends Resource
                                             ->schema([
                                                 CuratorPicker::make('media_file')
                                                     ->label('Column')
-                                                    ->required(),
+                                                    ->maxSize(512000)
+                                                    ->required(),    
                                             ])
                                             ->defaultItems(1) // Zorgt ervoor dat er standaard 1 item aanwezig is
                                             ->maxItems(3) // Maximaal 3 items per row
