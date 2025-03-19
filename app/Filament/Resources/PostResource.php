@@ -140,7 +140,7 @@ class PostResource extends Resource
 
                                 CuratorPicker::make('image_id')
                                     ->label('Featured Media')
-                                    ->maxSize(512000)
+                                    ->maxSize(51200) // Zorg ervoor dat deze overeenkomt met Livewire's config
                                     ->acceptedFileTypes(['image/*', 'video/mp4', 'video/avi', 'video/mkv'])
                                     ->helperText('Upload an image or a video.')
                                     ->required(),
