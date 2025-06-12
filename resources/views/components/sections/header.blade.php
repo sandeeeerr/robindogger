@@ -20,7 +20,7 @@
       {{-- Rechts uitgelijnd: Desktop Menu & Dark Mode Toggle --}}
       <div class="hidden items-center space-x-6 md:flex lg:space-x-8">
         <a href="/" class="text-sm font-light transition md:text-lg hover:text-gray-500 dark:hover:text-gray-300">Work</a>
-        <a href="#" class="text-sm font-light transition md:text-lg hover:text-gray-500 dark:hover:text-gray-300">Contact</a>
+        <a href="mailto:robindogger@gmail.com" class="text-sm font-light transition md:text-lg hover:text-gray-500 dark:hover:text-gray-300">Contact</a>
         <a wire:navigate href="/about" class="text-sm font-light transition md:text-lg hover:text-gray-500 dark:hover:text-gray-300">About</a>
         {{-- Dark Mode Toggle (Desktop) --}}
         <a
@@ -80,11 +80,11 @@
       x-transition:leave="transition ease-in duration-150"
       x-transition:leave-start="opacity-100 scale-100"
       x-transition:leave-end="opacity-0 scale-95"
-      class="mr-4 bg-white md:hidden dark:bg-black pace-y-4"
+      class="mr-4 bg-white md:hidden dark:bg-black pace-y-4 pb-4" 
     >
       <a href="#" class="block text-lg font-light transition hover:text-gray-500 dark:hover:text-gray-300">Work</a>
-      <a href="#" class="block text-lg font-light transition hover:text-gray-500 dark:hover:text-gray-300">Contact</a>
-      <a href="#" class="block text-lg font-light transition hover:text-gray-500 dark:hover:text-gray-300">About</a>
+      <a href="mailto:robindogger@gmail.com" class="block text-lg font-light transition hover:text-gray-500 dark:hover:text-gray-300">Contact</a>
+      <a href="/about" class="block text-lg font-light transition hover:text-gray-500 dark:hover:text-gray-300">About</a>
     </div>
   </x-container>
 </header>
