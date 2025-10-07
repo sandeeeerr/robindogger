@@ -36,7 +36,7 @@ class About extends Component
     public function render()
     {
         $title = 'About - ' . config('app.name');
-        $description = 'Learn more about me, a Graphic & Motion Designer based in Leeuwarden. Discover my background, skills, and creative journey.';
+        $description = 'Learn more about me, a Creative (Motion) Designer based in Leeuwarden. Discover my background, skills, and creative journey.';
         $url = route('about');
 
         seo()

@@ -26,10 +26,19 @@
             <h2 class="mt-0 mb-2 text-xl font-light md:mb-2 text-zinc-500 dark:text-zinc-400">
               Services
             </h2>
-            @if ($post->services)
-              <p class="text-xl font-light text-gray-700 dark:text-gray-300">
-                {{ $post->services }}
-              </p>
+            @php
+              $tags = collect(explode(',', (string) $post->services))
+                ->map(fn ($t) => trim($t))
+                ->filter(fn ($t) => $t !== '');
+            @endphp
+            @if ($tags->isNotEmpty())
+              <div class="flex flex-wrap gap-2">
+                @foreach ($tags as $tag)
+                  <span class="inline-flex items-center px-2 py-0.5 text-sm font-light text-gray-700 bg-gray-100 rounded-md">
+                    {{ __($tag) }}
+                  </span>
+                @endforeach
+              </div>
             @else
               <p class="text-xl font-light text-gray-500 dark:text-gray-400">
                 No services available.
@@ -37,7 +46,7 @@
             @endif
           </div>
 
-          <div class="md:col-span-1">
+          <div class="mt-4 md:mt-0 md:col-span-1">
             <h2 class="mt-0 mb-2 text-xl font-light md:mb-2 text-zinc-500 dark:text-zinc-400">
               Year
             </h2>
@@ -67,7 +76,13 @@
                 @endphp
                 @if ($mediaFile)
                   <div class="relative 
-                    aspect-[3/4]
+                    @if($cols == 1)
+                      aspect-auto
+                    @elseif($cols == 3)
+                      aspect-[3/4]
+                    @else
+                      aspect-square
+                    @endif
                     @if($cols == 3)
                       md:aspect-[3/4]
                     @elseif($cols == 2)
@@ -80,11 +95,11 @@
                       <img
                         src="{{ Storage::url($mediaFile->path) }}"
                         alt="{{ $mediaFile->alt ?? 'Media' }}"
-                        class="object-cover mt-0 mb-0 w-full h-full"
+                        class="@if($cols == 1) object-contain md:object-cover md:object-center @else object-cover object-center @endif mt-0 mb-0 w-full h-full"
                       />
                     @elseif (Str::endsWith($mediaFile->path, ['.mp4', '.avi', '.mpeg']))
                       <!-- Render video -->
-                      <video autoplay loop muted playsinline class="object-cover mt-0 w-full h-full">
+                      <video autoplay loop muted playsinline class="@if($cols == 1) object-contain md:object-cover md:object-center @else object-cover object-center @endif mt-0 w-full h-full">
                         <source src="{{ Storage::url($mediaFile->path) }}" type="video/mp4">
                         Your browser does not support the video tag.
                       </video>

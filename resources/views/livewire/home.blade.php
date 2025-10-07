@@ -1,5 +1,6 @@
 <div>
-  <x-hero title="A Graphic & Motion <br /> Designer based in Leeuwarden." />
+  @php($settings = App\Models\SiteSetting::query()->first())
+  <x-hero :title="$settings->home_header ?? 'A Creative (Motion) <br /> Designer based in Leeuwarden.'" />
 
   <x-container>
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

@@ -124,12 +124,35 @@ class PostResource extends Resource
                                     ->searchable()
                                     ->required(),
 
-                                Forms\Components\TextInput::make('services')
+                                Forms\Components\TagsInput::make('services')
                                     ->label('Services')
-                                    ->placeholder('Enter the services')
+                                    ->placeholder('Add a service and press enter')
+                                    ->suggestions([
+                                        'Branding', 'Logo', 'Art Direction', 'Animation', 'Motion Graphics', '3D', 'Graphic Design', 'Illustration', 'Web Design', 'UX', 'UI', 'Type Design'
+                                    ])
+                                    ->separator(',')
+                                    ->reorderable()
                                     ->nullable()
-                                    ->maxLength(255)
-                                    ->columnSpanFull(),
+                                    ->columnSpanFull()
+                                    // Ensure the UI state is always an array
+                                    ->afterStateHydrated(function (Forms\Components\TagsInput $component, $state) {
+                                        if (is_string($state)) {
+                                            $tags = array_filter(array_map(fn ($v) => trim($v), explode(',', $state)));
+                                            $component->state($tags);
+                                        } elseif (! is_array($state)) {
+                                            $component->state([]);
+                                        }
+                                    })
+                                    // Persist as a comma-separated string in DB
+                                    ->dehydrateStateUsing(function ($state) {
+                                        if (is_array($state)) {
+                                            // Ensure we store as comma-separated string without extra spaces
+                                            $trimmed = array_map(fn ($v) => trim((string) $v), $state);
+                                            $trimmed = array_filter($trimmed, fn ($v) => $v !== '');
+                                            return implode(',', $trimmed);
+                                        }
+                                        return trim((string) $state);
+                                    }),
                                 
                                 Forms\Components\TextInput::make('year')
                                     ->label('Year')

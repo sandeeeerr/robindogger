@@ -21,7 +21,7 @@ class Home extends Component
     public function render()
     {
         $title = 'Home - ' . config('app.name');
-        $description = 'Explore the portfolio of a talented Graphic & Motion Designer based in Leeuwarden. Discover creative works and projects.';
+        $description = 'Explore the portfolio of a Creative (Motion) Designer based in Leeuwarden. Discover creative works and projects.';
         $url = route('home');
 
         seo()
