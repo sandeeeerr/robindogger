@@ -25,7 +25,7 @@
                   <img
                     class="object-cover w-full h-full"
                     src="{{ $post->media_url }}"
-                    alt="{{ $post->media->alt ?? $post->title }}"
+                    alt="{{ $post->media->alt ?? $post->getTranslated('title') }}"
                   />
                 @endif
               @elseif ($post->image)
@@ -33,7 +33,7 @@
                 <img
                   class="object-cover w-full h-full"
                   src="{{ asset('storage/' . $post->image->path) }}"
-                  alt="{{ $post->image->alt ?? $post->title }}"
+                  alt="{{ $post->image->alt ?? $post->getTranslated('title') }}"
                 />
               @else
                 <!-- Placeholder wanneer er geen media of image beschikbaar is -->
@@ -44,7 +44,7 @@
             </div>
 
             <h3 class="my-4 text-xl font-light text-center text-gray-700 dark:text-gray-300 group-hover:text-primary-500 dark:group-hover:text-primary-400">
-              {{ $post->title }}
+              {{ $post->getTranslated('title') }}
             </h3>
           </a>
         </div>
