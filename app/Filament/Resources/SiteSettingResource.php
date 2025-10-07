@@ -29,14 +29,14 @@ class SiteSettingResource extends Resource
                 ->email()
                 ->placeholder('your@email.com'),
 
-            Forms\Components\Textarea::make('description')
-                ->rows(3)
-                ->placeholder('Short site description'),
-
             Forms\Components\Textarea::make('home_header')
                 ->label('Header text (home)')
                 ->rows(2)
                 ->placeholder('A Creative (Motion) Designer based in Leeuwarden.'),
+
+            Forms\Components\TextInput::make('header_tagline')
+                ->label('Header tagline (navigation)')
+                ->placeholder('Creative (Motion) Designer'),
 
             Forms\Components\Textarea::make('about_text')
                 ->label('About text')

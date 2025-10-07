@@ -11,6 +11,7 @@ class SiteSetting extends Model
 
     protected $fillable = [
         'email',
+        'header_tagline',
         'home_header',
         'about_text',
         'description',

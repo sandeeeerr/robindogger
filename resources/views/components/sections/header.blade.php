@@ -12,9 +12,12 @@
         </a>
       </div>
 
-      {{-- Midden: Statische tekst (alleen desktop) --}}
+      {{-- Midden: Tagline uit settings (alleen desktop) --}}
+      @php($settings = App\Models\SiteSetting::query()->first())
+      @php($tagline = $settings->header_tagline ?? 'Creative (Motion) Designer')
+      @php($taglineHtml = nl2br(e($tagline)))
       <div class="hidden absolute left-1/2 text-sm transform -translate-x-1/2 md:block md:text-lg text-zinc-500">
-        {{ __('( Graphic & Motion Design )') }}
+        {!! $taglineHtml !!}
       </div>
 
       {{-- Rechts uitgelijnd: Desktop Menu, Language Switch & Dark Mode Toggle --}}
