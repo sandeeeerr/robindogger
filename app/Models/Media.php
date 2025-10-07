@@ -7,25 +7,30 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Media extends BaseMedia
 {
+    protected function url(): Attribute
+    {
+        // Always return direct storage URL (public disk) instead of private or temp URL
+        return Attribute::make(
+            get: fn () => \Illuminate\Support\Facades\Storage::disk($this->disk)->url($this->path)
+        );
+    }
+
     protected function thumbnailUrl(): Attribute
     {
-        return Attribute::make(
-            get: fn () => $this->getSignedUrl(['w' => 200, 'h' => 200, 'fit' => 'crop'])
-        );
+        // Use the original file URL to avoid Glide
+        return Attribute::make(get: fn () => $this->url);
     }
 
     protected function mediumUrl(): Attribute
     {
-        return Attribute::make(
-            get: fn () => $this->getSignedUrl(['w' => 640, 'h' => 640, 'fit' => 'crop'])
-        );
+        // Use the original file URL to avoid Glide
+        return Attribute::make(get: fn () => $this->url);
     }
 
     protected function largeUrl(): Attribute
     {
-        return Attribute::make(
-            get: fn () => $this->getSignedUrl(['w' => 1024, 'h' => 1024, 'fit' => 'contain'])
-        );
+        // Use the original file URL to avoid Glide
+        return Attribute::make(get: fn () => $this->url);
     }
 }
 
