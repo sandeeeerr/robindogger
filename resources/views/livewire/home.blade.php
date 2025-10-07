@@ -1,6 +1,7 @@
 <div>
   @php($settings = App\Models\SiteSetting::query()->first())
-  @php($homeHeader = $settings->home_header ?? 'A Creative (Motion) Designer based in Leeuwarden.')
+  @php($locale = app()->getLocale())
+  @php($homeHeader = $settings->home_header_translations[$locale] ?? $settings->home_header ?? 'A Creative (Motion) Designer based in Leeuwarden.')
   @php($homeHeaderHtml = nl2br(e($homeHeader)))
   <x-hero :title="$homeHeaderHtml" />
 

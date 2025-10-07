@@ -1,7 +1,7 @@
 <div>
   <!-- Article -->
   <article>
-    <x-hero :title="$post->title"></x-hero>
+    <x-hero :title="$post->getTranslated('title')"></x-hero>
 
     <x-container>
       <div class="max-w-none prose dark:prose-invert">
@@ -11,9 +11,9 @@
             <h2 class="mt-0 mb-2 text-xl font-light md:mb-2 text-zinc-500 dark:text-zinc-400">
               Description
             </h2>
-            @if ($post->description)
+            @if ($post->getTranslated('description'))
               <p class="text-xl font-light text-gray-700 dark:text-gray-300">
-                {{ $post->description }}
+                {{ $post->getTranslated('description') }}
               </p>
             @else
               <p class="text-xl font-light text-gray-500 dark:text-gray-400">
@@ -27,18 +27,14 @@
               Services
             </h2>
             @php
-              $tags = collect(explode(',', (string) $post->services))
+              $tags = collect(explode(',', (string) ($post->services ?? '')))
                 ->map(fn ($t) => trim($t))
                 ->filter(fn ($t) => $t !== '');
             @endphp
-            @if ($tags->isNotEmpty())
-              <div class="flex flex-wrap gap-2">
-                @foreach ($tags as $tag)
-                  <span class="inline-flex items-center px-2 py-0.5 text-sm font-light text-gray-700 bg-gray-100 rounded-md">
-                    {{ __($tag) }}
-                  </span>
-                @endforeach
-              </div>
+            @if (isset($tags) && $tags->isNotEmpty())
+              @foreach ($tags as $tag)
+                <p class="text-xl font-light text-gray-500 dark:text-gray-400 m-0">{{ __($tag) }}</p>
+              @endforeach
             @else
               <p class="text-xl font-light text-gray-500 dark:text-gray-400">
                 No services available.

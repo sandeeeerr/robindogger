@@ -64,25 +64,49 @@ class PostResource extends Resource
                         Forms\Components\Section::make()
                             ->columnSpan(2)
                             ->schema([
-                                Forms\Components\TextInput::make('title')
-                                    ->placeholder('Enter a title')
-                                    ->live()
-                                    ->afterStateUpdated(function (Get $get, Set $set, string $operation, ?string $old, ?string $state) {
-                                        if (($get('slug') ?? '') !== Str::slug($old) || $operation !== 'create') {
-                                            return;
-                                        }
+                                Forms\Components\Tabs::make('Translations')
+                                    ->tabs([
+                                        Forms\Components\Tabs\Tab::make('Dutch')
+                                            ->schema([
+                                                Forms\Components\TextInput::make('title_translations.nl')
+                                                    ->label('Title (NL)')
+                                                    ->live()
+                                                    ->afterStateUpdated(function (Get $get, Set $set, string $operation, ?string $old, ?string $state) {
+                                                        // Keep base title in sync for listings and fallbacks
+                                                        $set('title', $state);
+                                                        if ($operation === 'create' && (($get('slug') ?? '') === Str::slug($old))) {
+                                                            $set('slug', Str::slug($state));
+                                                        }
+                                                    })
+                                                    ->maxLength(255)
+                                                    ->autofocus(),
 
-                                        $set('slug', Str::slug($state));
-                                    })
-                                    ->required()
-                                    ->maxLength(255)
-                                    ->autofocus(),
+                                                Forms\Components\Textarea::make('description_translations.nl')
+                                                    ->label('Description (NL)')
+                                                    ->rows(3),
+                                            ]),
+                                        Forms\Components\Tabs\Tab::make('English')
+                                            ->schema([
+                                                Forms\Components\TextInput::make('title_translations.en')
+                                                    ->label('Title (EN)')
+                                                    ->live()
+                                                    ->afterStateUpdated(function (Get $get, Set $set, string $operation, ?string $old, ?string $state) {
+                                                        // Keep base title if NL is empty
+                                                        if (! ($get('title_translations.nl') ?? null)) {
+                                                            $set('title', $state);
+                                                        }
+                                                    })
+                                                    ->maxLength(255),
 
-                                Forms\Components\Textarea::make('description')
-                                    ->label('Description')
-                                    ->placeholder('Enter a description')
-                                    ->nullable()
+                                                Forms\Components\Textarea::make('description_translations.en')
+                                                    ->label('Description (EN)')
+                                                    ->rows(3),
+                                            ]),
+                                    ])
                                     ->columnSpanFull(),
+
+                                Forms\Components\Hidden::make('title'),
+                                Forms\Components\Hidden::make('description'),
 
                                 Forms\Components\Repeater::make('rows')
                                     ->label('Media Rows')

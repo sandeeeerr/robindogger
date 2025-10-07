@@ -15,7 +15,9 @@ class Post extends Model
     protected $fillable = [
         'title',
         'slug',
+        'title_translations',
         'description',
+        'description_translations',
         'rows',
         'image_id',  // Dit veld kan zowel voor afbeeldingen als video's gebruikt worden
         'user_id',
@@ -27,10 +29,22 @@ class Post extends Model
     ];
 
     protected $casts = [
+        'title_translations' => 'array',
+        'description_translations' => 'array',
         'rows' => 'array',
         'is_published' => 'boolean',
         'published_at' => 'datetime',
     ];
+
+    public function getTranslated(string $field): ?string
+    {
+        $locale = app()->getLocale();
+        $translations = $this->getAttribute($field . '_translations') ?? [];
+        if (is_array($translations) && isset($translations[$locale]) && $translations[$locale] !== '') {
+            return $translations[$locale];
+        }
+        return $this->getAttribute($field);
+    }
 
     public function user()
     {

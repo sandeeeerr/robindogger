@@ -14,7 +14,8 @@
 
       {{-- Midden: Tagline uit settings (alleen desktop) --}}
       @php($settings = App\Models\SiteSetting::query()->first())
-      @php($tagline = $settings->header_tagline ?? 'Creative (Motion) Designer')
+      @php($locale = app()->getLocale())
+      @php($tagline = $settings->header_tagline_translations[$locale] ?? $settings->header_tagline ?? 'Creative (Motion) Designer')
       @php($taglineHtml = nl2br(e($tagline)))
       <div class="hidden absolute left-1/2 text-sm transform -translate-x-1/2 md:block md:text-lg text-zinc-500">
         {!! $taglineHtml !!}
@@ -24,7 +25,7 @@
       <div class="hidden items-center space-x-6 md:flex lg:space-x-8">
         <a href="/" class="text-sm font-light transition md:text-lg hover:text-gray-500">{{ __('Work') }}</a>
         <a href="mailto:robindogger@gmail.com" class="text-sm font-light transition md:text-lg hover:text-gray-500">{{ __('Contact') }}</a>
-        <a wire:navigate href="/about" class="text-sm font-light transition md:text-lg hover:text-gray-500">{{ __('About') }}</a>
+        <a wire:navigate href="/about" class="text-sm font-light transition md:text-lg hover:text-gray-500">{{ __('Info') }}</a>
 
         {{-- Language dropdown (Desktop) --}}
         <div class="relative" x-data="{ openLang: false }">
@@ -124,7 +125,7 @@
     >
       <a href="#" class="block text-lg font-light transition hover:text-gray-500">Work</a>
       <a href="mailto:robindogger@gmail.com" class="block text-lg font-light transition hover:text-gray-500">Contact</a>
-      <a href="/about" class="block text-lg font-light transition hover:text-gray-500">About</a>
+      <a href="/about" class="block text-lg font-light transition hover:text-gray-500">Info</a>
     </div>
   </x-container>
 </header>
