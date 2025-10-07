@@ -7,7 +7,7 @@
 <figure>
   <img
     {{ $attributes->merge(['class' => 'object-cover w-full border rounded-lg shadow']) }}
-    src="{{ is_numeric($image) ? Awcodes\Curator\Models\Media::find($image)?->url : $image }}"
+    src="{{ is_numeric($image) ? App\Models\Media::find($image)?->url : $image }}"
     alt="{{ $alt }}"
   >
 
