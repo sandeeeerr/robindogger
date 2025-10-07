@@ -7,8 +7,8 @@
 <footer class="justify-self-end py-8 mt-8 bg-white dark:bg-black">
   <x-container class="mx-auto max-w-7xl"> <!-- Maximale breedte en centreren -->
     <h1 class="text-3xl font-light leading-tight text-black sm:text-4xl md:text-5xl dark:text-white md:mb-8">
-      Let's work together <br />
-      email: 
+      {{ __('Let\'s work together') }} <br />
+      {{ __('email:') }} 
       <a class="transition text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300" href="mailto:{{ $settings->email ?? 'robindogger@gmail.com' }}">
         {{ $settings->email ?? 'robindogger@gmail.com' }}
       </a>
@@ -19,7 +19,7 @@
       <!-- Kolom 1: Selected Works -->
       <div>
         <h2 class="mb-2 text-xl font-light text-zinc-500 dark:text-zinc-400">
-          Selected Works
+          {{ __('Selected Works') }}
         </h2>
         <ul>
           @foreach ($randomPosts as $post)
@@ -35,7 +35,7 @@
       <!-- Kolom 2: Experience -->
       <div>
         <h2 class="mb-2 text-xl font-light text-zinc-500 dark:text-zinc-400">
-          Experience
+          {{ __('Experience') }}
         </h2>
         <ul>
           @foreach(($settings->experience ?? ['BW H ontwerpers (intern)', 'Freelance Work']) as $exp)
@@ -59,7 +59,7 @@
       <!-- Kolom 3: Contact -->
       <div>
         <h2 class="mb-2 text-xl font-light text-zinc-500 dark:text-zinc-400">
-          Contact
+          {{ __('Contact') }}
         </h2>
         <ul>
           <li>
@@ -73,7 +73,7 @@
       <!-- Kolom 4: Socials -->
       <div>
         <h2 class="mb-2 text-xl font-light text-zinc-500 dark:text-zinc-400">
-          Socials
+          {{ __('Socials') }}
         </h2>
         <ul>
           @php($socials = $settings->socials ?? [['name' => 'Instagram', 'url' => '#'], ['name' => 'LinkedIn', 'url' => '#']])
@@ -91,9 +91,9 @@
     <!-- Bottom footer section -->
     <div class="grid col-span-4 pt-8 mt-8 md:grid-cols-2">
       <div class="pr-2 text-xl font-light text-zinc-500" >
-        All visuals, animations, and text on this site are original works by Robin Dogger. Copying, reproducing, or sharing without prior permission is strictly prohibited.
+        {{ __('All visuals, animations, and text on this site are original works by Robin Dogger. Copying, reproducing, or sharing without prior permission is strictly prohibited.') }}
         <br><br>
-        © {{ date('Y') }} Robin Dogger. All rights reserved.
+        © {{ date('Y') }} Robin Dogger. {{ __('All rights reserved.') }}
       </div>
       <div class="pr-2 mt-4 text-xl font-light md:mt-0 text-zinc-500">
         Website development: <a href="https://sanderr.nl" target="_blank" rel="noopener noreferrer" class="hover:underline">Sanderr</a>

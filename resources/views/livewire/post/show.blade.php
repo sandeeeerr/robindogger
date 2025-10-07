@@ -9,7 +9,7 @@
         <div class="grid grid-cols-1 mb-4 md-gap-0 md:grid-cols-4 md:gap-8 md:mb-8">
           <div class="md:col-span-2">
             <h2 class="mt-0 mb-2 text-xl font-light md:mb-2 text-zinc-500 dark:text-zinc-400">
-              Description
+              {{ __('Description') }}
             </h2>
             @if ($post->getTranslated('description'))
               <p class="text-xl font-light text-gray-700 dark:text-gray-300">
@@ -24,7 +24,7 @@
 
           <div class="md:col-span-1">
             <h2 class="mt-0 mb-2 text-xl font-light md:mb-2 text-zinc-500 dark:text-zinc-400">
-              Services
+              {{ __('Services') }}
             </h2>
             @php
               $tags = collect(explode(',', (string) ($post->services ?? '')))
@@ -44,7 +44,7 @@
 
           <div class="mt-4 md:mt-0 md:col-span-1">
             <h2 class="mt-0 mb-2 text-xl font-light md:mb-2 text-zinc-500 dark:text-zinc-400">
-              Year
+              {{ __('Year') }}
             </h2>
             @if ($post->year)
               <p class="text-xl font-light text-gray-700 dark:text-gray-300">
