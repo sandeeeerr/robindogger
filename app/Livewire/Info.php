@@ -8,7 +8,7 @@ use Spatie\SchemaOrg\Schema;
 use romanzipp\Seo\Structs\Meta\Twitter;
 use romanzipp\Seo\Structs\Meta\OpenGraph;
 
-class About extends Component
+class Info extends Component
 {
     public $count = 1;
     public $rotations = [];
@@ -35,9 +35,9 @@ class About extends Component
      */
     public function render()
     {
-        $title = 'About - ' . config('app.name');
+        $title = 'Info - ' . config('app.name');
         $description = 'Learn more about me, a Creative (Motion) Designer based in Leeuwarden. Discover my background, skills, and creative journey.';
-        $url = route('about');
+        $url = route('info');
 
         seo()
             ->title($title)
@@ -64,6 +64,6 @@ class About extends Component
                 Twitter::make()->name('description')->content($description),
             ]);
 
-        return view('livewire.about');
+        return view('livewire.info');
     }
 }

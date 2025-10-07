@@ -25,7 +25,7 @@
       <div class="hidden items-center space-x-6 md:flex lg:space-x-8">
         <a href="/" class="text-sm font-light transition md:text-lg hover:text-gray-500">{{ __('Work') }}</a>
         <a href="mailto:robindogger@gmail.com" class="text-sm font-light transition md:text-lg hover:text-gray-500">{{ __('Contact') }}</a>
-        <a wire:navigate href="/about" class="text-sm font-light transition md:text-lg hover:text-gray-500">{{ __('Info') }}</a>
+        <a wire:navigate href="/info" class="text-sm font-light transition md:text-lg hover:text-gray-500">{{ __('Info') }}</a>
 
         {{-- Language dropdown (Desktop) --}}
         <div class="relative" x-data="{ openLang: false }">
@@ -125,7 +125,7 @@
     >
       <a href="#" class="block text-lg font-light transition hover:text-gray-500">Work</a>
       <a href="mailto:robindogger@gmail.com" class="block text-lg font-light transition hover:text-gray-500">Contact</a>
-      <a href="/about" class="block text-lg font-light transition hover:text-gray-500">Info</a>
+      <a href="/info" class="block text-lg font-light transition hover:text-gray-500">Info</a>
     </div>
   </x-container>
 </header>
